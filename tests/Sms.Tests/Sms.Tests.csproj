@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
+    <PackageReference Include="xunit" Version="2.9.3" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="3.1.5" PrivateAssets="All" />
+    <ProjectReference Include="../../src/Sms.Client/Sms.Client.csproj" />
+    <ProjectReference Include="../../src/Sms.ConsoleApp/Sms.ConsoleApp.csproj" />
+    <ProjectReference Include="../../src/Sms.DemoServer/Sms.DemoServer.csproj" />
+    <ProjectReference Include="../../src/Sms.WpfApp/Sms.WpfApp.csproj" />
+    <Using Include="Xunit" />
+    <Using Include="System.IO" />
+    <Using Include="System.Net.Http" />
+  </ItemGroup>
+</Project>

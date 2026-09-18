@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+import "google/protobuf/wrappers.proto";
+
+package sms.test;
+option csharp_namespace = "Sms.Test";
+
+message MenuItem {
+  string id = 1;
+  string article = 2;
+  string name = 3;
+  double price = 4;
+  bool is_weighted = 5;
+  string full_path = 6;
+  repeated string barcodes = 7;
+}
+
+message OrderItem {
+  string id = 1;
+  double quantity = 2;
+}
+
+message Order {
+  string id = 1;
+  repeated OrderItem order_items = 2;
+}
+
+message GetMenuResponse {
+  bool success = 1;
+  string error_message = 2;
+  repeated MenuItem menu_items = 3;
+}
+
+message SendOrderResponse {
+  bool success = 1;
+  string error_message = 2;
+}
+
+service SmsTestService {
+  rpc GetMenu(google.protobuf.BoolValue) returns (GetMenuResponse);
+  rpc SendOrder(Order) returns (SendOrderResponse);
+}
